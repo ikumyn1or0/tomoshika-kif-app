@@ -6,7 +6,7 @@ import re
 
 CSV_URL = "https://drive.google.com/uc?id=1Lg1xB79PYue1D5qSPy2IMo6zNMjOgEa4&export=download"
 
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_index_csv():
     df = pd.read_csv(CSV_URL)
     return df
@@ -18,6 +18,7 @@ def extract_file_id(drive_url: str) -> str | None:
         return match.group(1)
     return None
 
+@st.cache_data(ttl=300)
 def load_kif_text(kif_url):
     kif_if = extract_file_id(kif_url)
     response = requests.get(f"https://drive.google.com/uc?id={kif_if}&export=download")
@@ -37,6 +38,9 @@ def get_match_text(df, i):
 st.title("トモシカ対局棋譜データ")
 
 df = load_index_csv()
+
+
+col = st.columns([4, 1])
 
 selected_index = st.selectbox(
     "対局を選択",
