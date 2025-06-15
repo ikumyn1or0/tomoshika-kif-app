@@ -18,7 +18,7 @@ def extract_file_id(drive_url: str) -> str | None:
         return match.group(1)
     return None
 
-@st.cache_data(ttl=300)
+@st.cache_data()
 def load_kif_text(kif_url):
     kif_if = extract_file_id(kif_url)
     response = requests.get(f"https://drive.google.com/uc?id={kif_if}&export=download")
