@@ -44,7 +44,7 @@ col = st.columns([4, 1])
 
 selected_index = st.selectbox(
     "対局を選択",
-    df.index,
+    sorted(df.index, reverse=True),
     format_func=lambda i: get_match_text(df, i)
 )
 
