@@ -72,8 +72,9 @@ def get_match_text(df: pd.DataFrame, index: int) -> str:
     no = df.loc[index, "試合番号"]
     sente = df.loc[index, "先手"]
     gote = df.loc[index, "後手"]
+    teaiwari = df.loc[index, "手合割"]
     result = df.loc[index, "結果"]
-    return f"{date} {no}局目 {sente} 対 {gote} ({result})"
+    return f"{date} {no}局目 {sente} 対 {gote} ({teaiwari}, {result})"
 
 
 st.title("トモシカ対局棋譜データ")
@@ -92,11 +93,12 @@ selected_index = st.selectbox(
 row = df.loc[selected_index]
 
 st.markdown(f"""
-- 日付: {row["日付"]} - {row["試合番号"]}局目
-- 先手: {row["先手"]}
-- 後手: {row["後手"]}
-- 結果: {row["結果"]}
-- 動画: [こちらのリンク]({row["動画URL"]})
+- 日付　: {row["日付"]} - {row["試合番号"]}局目
+- 先手　: {row["先手"]}
+- 後手　: {row["後手"]}
+- 手合割: {row["手合割"]}
+- 結果　: {row["結果"]}
+- 動画　: [こちらのリンク]({row["動画URL"]})
 """)
 
 try:
