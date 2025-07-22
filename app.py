@@ -77,6 +77,8 @@ def get_match_text(df: pd.DataFrame, index: int) -> str:
     return f"{date} {no}局目 {sente} 対 {gote} ({teaiwari}, {result})"
 
 
+st.set_page_config(page_title="トモシカ対局棋譜データ")
+
 st.title("トモシカ対局棋譜データ")
 
 df = load_index_csv()
@@ -116,4 +118,8 @@ except FileNotFoundError as e:
 
 
 st.markdown("---")
-st.markdown("このサイトについての問い合わせは[@mega_ebi](https://x.com/mega_ebi)まで")
+st.markdown(
+    "[緋笠トモシカ](https://www.youtube.com/@tomoshikahikasa)さんやそのお友達の方が対局した棋譜データをまとめています。"
+)
+st.markdown("棋譜は手入力ですのでミスがあるかもしれませんが、ご了承ください。")
+st.markdown("このサイトについての問い合わせや棋譜のミスについては[@mega_ebi](https://x.com/mega_ebi)まで")
