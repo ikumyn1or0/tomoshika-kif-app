@@ -77,9 +77,9 @@ def get_match_text(df: pd.DataFrame, index: int) -> str:
     return f"{date} {no}局目 {sente} 対 {gote} ({teaiwari}, {result})"
 
 
-st.set_page_config(page_title="トモシカ対局棋譜データ")
+st.set_page_config(page_title="トモシカ対局棋譜データ", page_icon="🦌")
 
-st.title("トモシカ対局棋譜データ")
+st.title("☖トモシカ対局棋譜データ🦌")
 
 df = load_index_csv()
 
