@@ -117,9 +117,15 @@ except FileNotFoundError as e:
     st.error(f"棋譜の読み込みに失敗しました: {e}")
 
 
-st.markdown("---")
+st.divider()
 st.markdown(
-    "[緋笠トモシカ](https://www.youtube.com/@tomoshikahikasa)さんやそのお友達の方が対局した棋譜データをまとめています。"
+    "[緋笠トモシカ](https://www.youtube.com/@tomoshikahikasa)さんやそのお友達の方が対局した棋譜データをまとめています。棋譜は手入力ですのでミスがあるかもしれませんが、ご了承ください。"
 )
-st.markdown("棋譜は手入力ですのでミスがあるかもしれませんが、ご了承ください。")
+
 st.markdown("このサイトについての問い合わせや棋譜のミスについては[@mega_ebi](https://x.com/mega_ebi)まで")
+
+with st.expander("このページに関するその他の注記"):
+    st.markdown(
+        "2024/08/12 - [【将棋】VOMS将棋部でぐちゃぐちゃ10秒将棋総当たり大会！！](https://www.youtube.com/live/Y7jC8mEBUbE?si=HIPig2pgMW3q4DeI)で実施した対局は、あまりにも対局数が多く手入力の手間がかかるため、少なくとも当面は対象外です。"
+    )
+    st.markdown("2025/08/12 - ５五将棋、短時間での切れ負け将棋は基本的に対象外です。")
